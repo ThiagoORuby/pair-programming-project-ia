@@ -1,0 +1,17 @@
+{% macro qualitative_scale(label, name, min, max) %}
+<div class="mb-3 px-4">
+  <label for="{{ name }}" class="form-label"><b>{{ label }}</b></label>
+  {% for i in range(min, max+1) %}
+  <div class="form-check form-check-inline">
+    <input
+      class="form-check-input"
+      type="radio"
+      name="{{ name }}"
+      id="{{ name }}{{ i }}"
+      value="{{ i }}"
+    />
+    <label class="form-check-label" for="{{ name }}{{ i }}"> {{ i }} </label>
+  </div>
+  {% endfor %}
+</div>
+{% endmacro %}

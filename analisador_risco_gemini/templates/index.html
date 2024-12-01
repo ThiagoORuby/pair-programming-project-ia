@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% from "input_types.html" import qualitative_scale %}
+
+<!-- TELA INICIAL -->
+
+{% block app_view %}
+
+<div>
+  <h1 class="text-center">Analisador de Risco</h1>
+  <p class="text-center">
+    Preencha os campos abaixo para receber um diagnóstico quanto ao risco do
+    desenvolvimento do seu projeto de software
+  </p>
+  <form method="POST" class="text-center">
+    {{ qualitative_scale('Nível de Entrosamento da Equipe: ', 'entrosamento', 0,
+    10) }}
+    <button type="submit" class="btn btn-primary">Calcular Risco</button>
+  </form>
+</div>
+
+{% endblock %}

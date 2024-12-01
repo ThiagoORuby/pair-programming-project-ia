@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+<!-- Tela de Resultados  -->
+
+{% block app_view %}
+<div class="text-center p-2">
+    <h2>Resultado da Análise:</h2>
+    <h4 class="text-primary">Índice de Risco: {{ result }} %</h4>
+    <img src="data:image/png;base64,{{ image_base64 }}" alt="Plot do Risco" />
+  </div>
+</div>
+{% endblock %}

@@ -1,19 +1,24 @@
 {% extends "base.html" %}
-{% from "input_types.html" import qualitative_scale %}
+{% from "input_types.html" import qualitative_scale_field, numeric_field %}
 
 <!-- TELA INICIAL -->
 
 {% block app_view %}
 
 <div>
-  <h1 class="text-center">Analisador de Risco</h1>
-  <p class="text-center">
-    Preencha os campos abaixo para receber um diagnóstico quanto ao risco do
-    desenvolvimento do seu projeto de software
-  </p>
   <form method="POST" class="text-center">
-    {{ qualitative_scale('Nível de Entrosamento da Equipe: ', 'entrosamento', 0,
-    10) }}
+    {{ numeric_field("Experiência da Equipe: ", "experiencia", 1, 10, "anos") }}
+    {{ qualitative_scale_field("Nível de Entrosamento da Equipe: ", "entrosamento", 0, 10) }}
+    {{ numeric_field("Rotatividade da equipe: ", "rotatividade", 0, 100, "%") }}
+    {{ qualitative_scale_field("Definição de requisitos: ", "definicao_requisitos", 0, 10) }}
+    {{ numeric_field("Mudanças nos requisitos: ", "mudancas_requisitos", 0, 100, "%") }}
+    {{ qualitative_scale_field("Complexidade Técnica: ", "complexidade_tecnica", 0, 10) }}
+    {{ numeric_field("Tamanho do Projeto: ", "tamanho_projeto", 0, 100, "pontos de função") }}
+    {{ numeric_field("Prazo: ", "prazo", 1, 36, "meses") }}
+    {{ qualitative_scale_field("Comunicação: ", "comunicacao", 0, 10) }}
+    {{ qualitative_scale_field("Maturidade das Ferramentas: ", "maturidade_ferramentas", 0, 10) }}
+    {{ qualitative_scale_field("Impacto do Ambiente Externo: ", "impacto_ambiente_externo", 0, 10) }}
+    {{ numeric_field("Orçamento Disponível: ", "orcamento", 5000, 100000, "USD") }}
     <button type="submit" class="btn btn-primary">Calcular Risco</button>
   </form>
 </div>
